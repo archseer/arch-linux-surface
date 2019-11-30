@@ -21,16 +21,16 @@ from Touchscreen is working.
 
 # Setup
 
-A custom patched kernel build is required. The prebuilt packages are *not
-recommended* because they include a legacy i915 driver to make IPTS work on
-older Surface devices. This will *not work* for gen7 and will make your graphics
+A custom patched kernel build is required. The prebuilt packages are **not
+recommended** because they include a legacy i915 driver to make IPTS work on
+older Surface devices. This will **not work** for gen7 and will make your graphics
 buggy and occasionally crash the compositor. You have been warned.
 
 The rest of this guide will take you through setting up a minimally patched
 kernel and qzed's custom ACPI module (which is necessary for keyboard, touchpad,
 battery status and performance modes to function!)
 
-You want to install *kernel 5.4+* which contains the icelake-pinctrl changes
+You want to install **kernel 5.4+** which contains the icelake-pinctrl changes
 necessary for the power button to work.
 
 ## Patch list
@@ -93,7 +93,7 @@ Congrats! Most things should work now. A few additional steps to address various
 ### Extras
 - Add user to `video` to allow changing the backlight
 - Possibly use libinput-gestures for touchpad gestures
-- Possibly use powertop (but don't disable "PCI Device Intel Corporation Ice Lake-LP USB 3.1 xHCI Host")
+- Possibly use powertop (but don't disable "PCI Device Intel Corporation Ice Lake-LP USB 3.1 xHCI Host" or keyboard/touchpad will start dropping events)
 - Setup a swapfile, then enable `suspend-then-hibernate` mode
 - Test the webcam via `mpv av://v4l2:/dev/video0 --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set input_format=mjpeg` (video2 for the Windows Hello IR camera)
     - it supports both YUV and MJPEG input formats, but while YUV is the default, only MJPEG is 720p
