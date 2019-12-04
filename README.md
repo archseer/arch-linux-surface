@@ -16,7 +16,7 @@ from Touchscreen is working.
 | Microphone          | Yes                                                         |                  |
 | Suspend             | Yes (s2idle/s0ix)                                           |                  |
 | Power button        | Yes (requires 5.4+ kernel)                                  | soc_button_array |
-| Battery status      | Pending (experimental driver included)                      | surface_sam      |
+| Battery status      | Yes                                                         | surface_sam      |
 | Performance modes   | ? (testing required)                                        | surface_sam      |
 
 # Setup
@@ -76,7 +76,6 @@ TODO: expand with more detail
 - Build and install the custom kernel, using `.patch` files in the `kernel/` folder (Arch: a custom PKGBUILD is included: `cd kernel; MAKEFLAGS="-j4" makepkg -s --skippgpcheck; sudo pacman -U *.pkg.tar.xz`)
 - Reboot
 - Build and install the [surface acpi module](https://github.com/qzed/linux-surfacegen5-acpi) via dkms (Arch: `cd surface_acpi; makepkg -s; sudo pacman -U *.pkg.tar.xz`)
-    - The PKGBUILD uses an experimental branch that includes the battery driver.
 
 Congrats! Most things should work now. A few additional steps to address various problems:
 

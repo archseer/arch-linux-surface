@@ -12,7 +12,7 @@ license=('GPL2')
 provides=('surface_sam')
 depends=('dkms')
 _srcname=source
-_srcbranch='feature/sid/battery'
+_srcbranch='master'
 source=(
   "$_srcname::git+https://github.com/qzed/linux-surfacegen5-acpi.git#branch=$_srcbranch"
 )
