@@ -74,6 +74,7 @@ TODO: expand with more detail
     - Protip: You can use `copytoram` which will copy the resouces to RAM,
         allowing you to disconnect the USB and plug in an external keyboard.
 - Build and install the custom kernel, using `.patch` files in the `kernel/` folder (Arch: a custom PKGBUILD is included: `cd kernel; MAKEFLAGS="-j4" makepkg -s --skippgpcheck; sudo pacman -U *.pkg.tar.xz`)
+- Make sure to update your bootloader to point to the new kernel.
 - Reboot
 - Build and install the [surface acpi module](https://github.com/qzed/linux-surfacegen5-acpi) via dkms (Arch: `cd surface_acpi; makepkg -s; sudo pacman -U *.pkg.tar.xz`)
 
