@@ -49,7 +49,7 @@ Depending on when you read this, you might not need some (or all) of these anymo
 
 | Name                                                       | Description                                                      | Upstream          |
 | ----                                                       | --------                                                         | -----             |
-| 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | No ([Possibly soon](https://patchwork.kernel.org/patch/10853017/)) |
+| 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | [Possibly scheduled for 5.5/5.6](https://patchwork.kernel.org/patch/11276171/) |
 | 0002-serdev-Add-ACPI-devices-by-ResourceSource-field.patch | Needed for ACPI detection            | Scheduled for 5.5 |
 | 0004-hid.patch                                             | Needed to fix touchpad detection     | Scheduled for 5.5 |
 | 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Yes (5.4.3)       |
