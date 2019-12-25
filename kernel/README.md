@@ -1,7 +1,7 @@
 # Build
 
 ```
-MAKEFLAGS="-j4" makepkg -s --skippgpcheck
+PKGEXT='.pkg.tar' MAKEFLAGS="-j8" makepkg -s --skippgpcheck
 ```
 
 # To reproduce from a vanilla kernel PKGBUILD

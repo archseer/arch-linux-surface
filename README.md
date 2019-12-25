@@ -17,6 +17,7 @@ from Touchscreen is working.
 | Suspend             | Yes (s2idle/s0ix)                                           |                  |
 | Power button        | Yes (requires 5.4+ kernel)                                  | soc_button_array |
 | Battery status      | Yes                                                         | surface_sam      |
+| Ambient light sensor| No (some debugging required)                                |                  |
 | Performance modes   | ? (testing required)                                        | surface_sam      |
 
 # Setup
@@ -52,7 +53,7 @@ Depending on when you read this, you might not need some (or all) of these anymo
 | 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | [Possibly scheduled for 5.5/5.6](https://patchwork.kernel.org/patch/11276171/) |
 | 0002-serdev-Add-ACPI-devices-by-ResourceSource-field.patch | Needed for ACPI detection            | Scheduled for 5.5 |
 | 0004-hid.patch                                             | Needed to fix touchpad detection     | Scheduled for 5.5 |
-| 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Yes (5.4.3)       |
+| 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Scheduled for 5.5 |
 
 If things go well, we should be able to use the mainline kernel together with
 the acpi module soon, which will simplify the process a lot.
@@ -73,7 +74,7 @@ TODO: expand with more detail
         kernel includes a patch for this issue.
     - Protip: You can use `copytoram` which will copy the resouces to RAM,
         allowing you to disconnect the USB and plug in an external keyboard.
-- Build and install the custom kernel, using `.patch` files in the `kernel/` folder (Arch: a custom PKGBUILD is included: `cd kernel; MAKEFLAGS="-j4" makepkg -s --skippgpcheck; sudo pacman -U *.pkg.tar.xz`)
+- Build and install the custom kernel, using `.patch` files in the `kernel/` folder (Arch: a custom PKGBUILD is included: `cd kernel; PKGEXT=".pkg.tar" MAKEFLAGS="-j8" makepkg -s --skippgpcheck; sudo pacman -U *.pkg.tar.xz`)
 - Make sure to update your bootloader to point to the new kernel.
 - Reboot
 - Build and install the [surface acpi module](https://github.com/qzed/linux-surfacegen5-acpi) via dkms (Arch: `cd surface_acpi; makepkg -s; sudo pacman -U *.pkg.tar.xz`)

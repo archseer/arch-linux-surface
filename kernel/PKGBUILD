@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux-surface-dev
-pkgver=5.4.1
+pkgver=5.4.6
 pkgrel=1
 pkgdesc='Linux'
 _srctag=v${pkgver%.*}-arch${pkgver##*.}
@@ -22,7 +22,6 @@ source=(
   0001-ACPI-Fix-buffer-integer-type-mismatch.patch
   0002-serdev-Add-ACPI-devices-by-ResourceSource-field.patch
   0004-hid.patch
-  0010-ioremap_uc.patch
 
 )
 validpgpkeys=(
@@ -32,7 +31,6 @@ validpgpkeys=(
 )
 sha256sums=('SKIP'
             'e749cd85d37d4d70099b0a7f54e852b039ae07c14e4ab8be299c64edae5d4ba4'
-            'SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
