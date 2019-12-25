@@ -1,4 +1,4 @@
-# Linux for Surface gen7 (2019) (Surface Pro 7, Surface Laptop 3, Surface Pro X?)
+# Linux for Surface gen7 (2019) (Surface Pro 7, Surface Laptop 3, ~Surface Pro X?~)
 
 Primarily tested on Arch Linux + Surface Laptop 13" (Intel). Everything apart
 from Touchscreen is working.
