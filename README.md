@@ -50,34 +50,47 @@ Depending on when you read this, you might not need some (or all) of these anymo
 
 | Name                                                       | Description                                                      | Upstream          |
 | ----                                                       | --------                                                         | -----             |
-| 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | [Possibly scheduled for 5.5/5.6](https://patchwork.kernel.org/patch/11276171/) |
+| 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | [Possibly scheduled for 5.6](https://patchwork.kernel.org/patch/11276171/) |
 | 0002-serdev-Add-ACPI-devices-by-ResourceSource-field.patch | Needed for ACPI detection            | Scheduled for 5.5 |
 | 0004-hid.patch                                             | Needed to fix touchpad detection     | Scheduled for 5.5 |
-| 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Scheduled for 5.5 |
+| 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Scheduled for 5.5, included in Arch (5.4+) |
 
 If things go well, we should be able to use the mainline kernel together with
 the acpi module soon, which will simplify the process a lot.
 
 ## Instructions
 
-Until the ACPI module is installed and loaded, the touchpad and keyboard won't
+Surface Laptop users: until the ACPI module is installed and loaded, the touchpad and keyboard won't
 function, so you'll need an external keyboard.
 
 TODO: expand with more detail
 
+- [Make a bootable USB](https://wiki.archlinux.org/index.php/USB_flash_installation_media)
 - Shrink the windows partition
 - [Disable secure boot](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/disabling-secure-boot)
 - [Boot into UEFI to change the boot order to allow booting from USB](https://support.microsoft.com/en-us/help/4023511/surface-boot-surface-from-a-usb-device)
 - Install Linux via a bootable USB
     - If you are having issues with the boot process hanging, temporarily add
-        `modprobe.blacklist=intel_lpss_pci` to the boot params. The custom
+        `modprobe.blacklist=intel_lpss_pci` to the boot params (Press `e` on the bootloader screen). The custom
         kernel includes a patch for this issue.
-    - Protip: You can use `copytoram` which will copy the resouces to RAM,
+    - Protip: You can use `copytoram=y` boot param which will copy the resouces to RAM,
         allowing you to disconnect the USB and plug in an external keyboard.
-- Build and install the custom kernel, using `.patch` files in the `kernel/` folder (Arch: a custom PKGBUILD is included: `cd kernel; PKGEXT=".pkg.tar" MAKEFLAGS="-j8" makepkg -s --skippgpcheck; sudo pacman -U *.pkg.tar.xz`)
+- Build and install the custom kernel, using `.patch` files in the `kernel/` folder
+  (Arch: a custom PKGBUILD is included:)
+  ```
+  cd kernel
+  PKGEXT=".pkg.tar" MAKEFLAGS="-j8" makepkg -s --skippgpcheck
+  sudo pacman -U *.pkg.tar.xz
+  ```
 - Make sure to update your bootloader to point to the new kernel.
 - Reboot
-- Build and install the [surface acpi module](https://github.com/qzed/linux-surfacegen5-acpi) via dkms (Arch: `cd surface_acpi; makepkg -s; sudo pacman -U *.pkg.tar.xz`)
+- Build and install the [surface_sam acpi module](https://github.com/qzed/linux-surfacegen5-acpi) via dkms
+  (Arch: a custom PKGBUILD is included:)
+  ```
+  cd surface_acpi
+  makepkg -s
+  sudo pacman -U *.pkg.tar.xz
+  ```
 
 Congrats! Most things should work now. A few additional steps to address various problems:
 
