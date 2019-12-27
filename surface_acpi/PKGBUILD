@@ -1,6 +1,6 @@
 # Maintainer: Blaz Hrastnik <blaz@mxxn.io>
 
-pkgname=linux-surfacegen5-acpi-dkms
+pkgname=linux-surfacegen5-acpi-dkms-git
 _modname=surface_sam
 _modver=0.1
 pkgver=20191129
