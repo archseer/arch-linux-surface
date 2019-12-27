@@ -103,3 +103,7 @@ Congrats! Most things should work now. A few additional steps to address various
 
 Aim them at [qzed](https://github.com/qzed/linux-surfacegen5-acpi/blob/master/README.md#donations)
 -- he maintains the ACPI module, latest patchsets and prebuilt kernels that make gen5+ viable on linux
+
+## Development
+
+For development related questions and discussions, please consider joining our IRC channel on freenode (or Matrix bridge [##linux-surface](https://matrix.to/#/#freenode_##linux-surface:matrix.org)).
