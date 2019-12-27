@@ -80,7 +80,7 @@ TODO: expand with more detail
   ```
   cd kernel
   PKGEXT=".pkg.tar" MAKEFLAGS="-j8" makepkg -s --skippgpcheck
-  sudo pacman -U *.pkg.tar.xz
+  sudo pacman -U *.pkg.tar
   ```
 - Make sure to update your bootloader to point to the new kernel.
 - Reboot
