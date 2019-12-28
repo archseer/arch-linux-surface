@@ -95,14 +95,23 @@ TODO: expand with more detail
 Congrats! Most things should work now. A few additional steps to address various problems:
 
 - Add `reboot=pci` to your kernel parameters to fix `reboot` (normally hangs at the surface logo)
-- If wifi fails to work, and `dmesg` output says it's failing to load ucode, [follow these instructions](https://gitlab.com/emrose/xps13-7390_debian/issues/5#note_240886447)
 
 #### Intel CPU
 - Install `intel-ucode` for latest CPU microcode.
+
+- If wifi fails to work, and `dmesg` output says it's failing to load ucode, [follow these instructions](https://gitlab.com/emrose/xps13-7390_debian/issues/5#note_240886447) to add the missing firmware. (Arch: this patch is already applied to `linux-firmware`. Other: currently queued for upstream in `iwlwifi/linux-firmware`)
+
 - If using dm-crypt: Add `intel_spi_pci intel_lpss_pci xhci_pci idma64 8250_dw surface_sam?` to your mkinitcpio MODULES list to have a working keyboard at the LUKS screen.
 
 #### AMD CPU
 [please report your findings]
+
+- The upstream wifi firmware included in `linux-firmware` is buggy. Follow the same steps as for [Surface Go](https://www.reddit.com/r/SurfaceLinux/comments/94hjxv/surface_go_first_impressions/), which uses the same wifi chip:
+    - Remove /usr/lib/firmware/ath10k/QCA6174/board-2.bin
+    - Replace /usr/lib/firmware/ath10k/QCA6174/board.bin with http://www.killernetworking.com/support/K1535_Debian/board.bin
+    - Specify "options ath10k_core skip_otp=y" in /etc/modprobe.d/ath10k.conf
+
+- If using dm-crypt: Add `pinctrl_amd 8250_dw surface_sam?` to your mkinitcpio MODULES list to have a working keyboard at the LUKS screen.
 
 ### Extras
 - Add user to `video` to allow changing the backlight
