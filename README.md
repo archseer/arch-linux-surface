@@ -107,9 +107,9 @@ Congrats! Most things should work now. A few additional steps to address various
 [please report your findings]
 
 - The upstream wifi firmware included in `linux-firmware` is buggy. Follow the same steps as for [Surface Go](https://www.reddit.com/r/SurfaceLinux/comments/94hjxv/surface_go_first_impressions/), which uses the same wifi chip:
-    - Remove /usr/lib/firmware/ath10k/QCA6174/board-2.bin
-    - Replace /usr/lib/firmware/ath10k/QCA6174/board.bin with http://www.killernetworking.com/support/K1535_Debian/board.bin
-    - Specify "options ath10k_core skip_otp=y" in /etc/modprobe.d/ath10k.conf
+    - Remove `/usr/lib/firmware/ath10k/QCA6174/board-2.bin`
+    - Replace `/usr/lib/firmware/ath10k/QCA6174/board.bin` with http://www.killernetworking.com/support/K1535_Debian/board.bin
+    - Specify `options ath10k_core skip_otp=y` in `/etc/modprobe.d/ath10k.conf`
 
 - If using dm-crypt: Add `pinctrl_amd 8250_dw surface_sam?` to your mkinitcpio MODULES list to have a working keyboard at the LUKS screen.
 
