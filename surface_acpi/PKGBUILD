@@ -3,7 +3,7 @@
 pkgname=linux-surfacegen5-acpi-dkms-git
 _modname=surface_sam
 _modver=0.1
-pkgver=20191129
+pkgver=20191226
 pkgrel=1
 pkgdesc="ACPI/Platform Drivers for Surface gen5+ products, dkms version"
 arch=(any)
@@ -20,6 +20,7 @@ sha256sums=('SKIP')
 
 package() {
   cd ${srcdir}/${_srcname}/
+  sed --in-place '/-DDEBUG/d' module/Makefile
 
   mkdir -p "${pkgdir}"/usr/src/${_modname}-${_modver}/
   cp -t "${pkgdir}"/usr/src/${_modname}-${_modver}/ module/*
