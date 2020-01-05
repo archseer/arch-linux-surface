@@ -52,7 +52,7 @@ Depending on when you read this, you might not need some (or all) of these anymo
 | ----                                                       | --------                                                         | -----             |
 | 0001-ACPI-Fix-buffer-integer-type-mismatch.patch           | Works around an ACPI incompatibility | [Possibly scheduled for 5.6](https://patchwork.kernel.org/patch/11276171/) |
 | 0002-serdev-Add-ACPI-devices-by-ResourceSource-field.patch | Needed for ACPI detection            | Scheduled for 5.5 |
-| 0004-hid.patch                                             | Needed to fix touchpad detection     | Scheduled for 5.5 |
+| ~~~0004-hid.patch~~~                                       | Needed to fix touchpad detection     | Landed in 5.4.8   |
 | 0010-ioremap_uc.patch                                      | Needed to fix a CPU firmware bug     | Scheduled for 5.5, included in Arch (5.4+) |
 
 If things go well, we should be able to use the mainline kernel together with
